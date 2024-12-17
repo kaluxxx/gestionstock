@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,4 +29,7 @@ public class User extends AbstractIdentifier {
     @ManyToOne
     @JoinColumn(name = "company_uuid")
     private Company company;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StockMovement> stockMovements;
 }

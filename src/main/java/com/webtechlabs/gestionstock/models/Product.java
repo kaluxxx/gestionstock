@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,8 +22,8 @@ public class Product extends AbstractIdentifier {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "price", nullable = false)
-    private double price;
+    @Column(name = "price")
+    private Double price;
 
     @Column(name = "quantity", nullable = false)
     private int stockQuantity;
@@ -39,4 +41,11 @@ public class Product extends AbstractIdentifier {
     @ManyToOne
     @JoinColumn(name = "company_uuid", nullable = false)
     private Company company;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StockMovement> stockMovements;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_uuid", nullable = false)
+    private Supplier supplier;
 }

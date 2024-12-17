@@ -14,20 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "company")
-public class Company extends AbstractIdentifier {
-
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @Embedded
-    private Address address;
-
-    @Embedded
-    private ContactPerson contact;
+public class Company extends AbstractPerson {
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<User> users;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company")
     private List<Product> products;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Supplier> suppliers;
 }
