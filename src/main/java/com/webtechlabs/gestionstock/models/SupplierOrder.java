@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "supplier_order")
+@Table(name = "supplier_orders")
 public class SupplierOrder extends AbstractOrder {
 
     @Enumerated(EnumType.STRING)
@@ -20,4 +20,5 @@ public class SupplierOrder extends AbstractOrder {
     private ESupplierOrderStatus status;
 
     @Column(name = "reception_date")
+    private String receptionDate;
 }

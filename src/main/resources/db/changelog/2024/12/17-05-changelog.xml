@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1734462489462-1" author="Lucas">
+        <createTable tableName="supplier_orders">
+            <column name="uuid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_supplier_orders"/>
+            </column>
+            <column name="order_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_date" type="DATETIME"/>
+            <column name="cancel_date" type="DATETIME"/>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="reception_date" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734462489462-2" author="Lucas">
+        <dropTable cascadeConstraints="true" tableName="supplier_order"/>
+    </changeSet>
+
+</databaseChangeLog>
