@@ -3,17 +3,13 @@ package com.webtechlabs.gestionstock.model;
 import com.webtechlabs.gestionstock.enums.EPaymentMethod;
 import com.webtechlabs.gestionstock.enums.EPaymentStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "payments")
 public class Payment extends AbstractIdentifier {

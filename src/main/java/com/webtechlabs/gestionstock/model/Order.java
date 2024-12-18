@@ -2,18 +2,14 @@ package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.EOrderStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order extends AbstractOrder {

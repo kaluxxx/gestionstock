@@ -2,17 +2,13 @@ package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.EAuditActionType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "audit_logs")
 public class AuditLog extends AbstractIdentifier {

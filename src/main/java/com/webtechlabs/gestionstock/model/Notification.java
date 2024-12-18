@@ -2,15 +2,11 @@ package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.ENotificationType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "notifications")
 public class Notification extends AbstractIdentifier {
