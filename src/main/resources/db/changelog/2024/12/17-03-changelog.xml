@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1734460245002-1" author="Lucas">
+        <createTable tableName="stock_movements">
+            <column name="uuid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_stock_movements"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="movement_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="occurred_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reason" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_uuid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_uuid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734460245002-2" author="Lucas">
+        <createTable tableName="supplier">
+            <column name="uuid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_supplier"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734460245002-3" author="Lucas">
+        <addColumn tableName="product">
+            <column name="company_uuid" type="VARCHAR(255)"/>
+            <column name="supplier_uuid" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1734460245002-4" author="Lucas">
+        <addNotNullConstraint columnName="company_uuid" tableName="product"/>
+    </changeSet>
+    <changeSet id="1734460245002-6" author="Lucas">
+        <addNotNullConstraint columnName="supplier_uuid" tableName="product"/>
+    </changeSet>
+    <changeSet id="1734460245002-7" author="Lucas">
+        <addUniqueConstraint columnNames="email" constraintName="uc_supplier_email" tableName="supplier"/>
+    </changeSet>
+    <changeSet id="1734460245002-8" author="Lucas">
+        <addUniqueConstraint columnNames="phone" constraintName="uc_supplier_phone" tableName="supplier"/>
+    </changeSet>
+    <changeSet id="1734460245002-9" author="Lucas">
+        <addForeignKeyConstraint baseColumnNames="company_uuid" baseTableName="product"
+                                 constraintName="FK_PRODUCT_ON_COMPANY_UUID" referencedColumnNames="uuid"
+                                 referencedTableName="company"/>
+    </changeSet>
+    <changeSet id="1734460245002-10" author="Lucas">
+        <addForeignKeyConstraint baseColumnNames="supplier_uuid" baseTableName="product"
+                                 constraintName="FK_PRODUCT_ON_SUPPLIER_UUID" referencedColumnNames="uuid"
+                                 referencedTableName="supplier"/>
+    </changeSet>
+    <changeSet id="1734460245002-11" author="Lucas">
+        <addForeignKeyConstraint baseColumnNames="product_uuid" baseTableName="stock_movements"
+                                 constraintName="FK_STOCK_MOVEMENTS_ON_PRODUCT_UUID" referencedColumnNames="uuid"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1734460245002-12" author="Lucas">
+        <addForeignKeyConstraint baseColumnNames="user_uuid" baseTableName="stock_movements"
+                                 constraintName="FK_STOCK_MOVEMENTS_ON_USER_UUID" referencedColumnNames="uuid"
+                                 referencedTableName="users"/>
+    </changeSet>
+
+</databaseChangeLog>
