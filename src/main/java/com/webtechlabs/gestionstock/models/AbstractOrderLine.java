@@ -13,15 +13,15 @@ import lombok.Setter;
 public class AbstractOrderLine extends AbstractIdentifier {
 
     @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+    protected Integer quantity;
 
     @Column(name = "unit_price", nullable = false)
-    private Double unitPrice;
+    protected Double unitPrice;
 
     @Column(name = "sub_total", nullable = false)
-    private Double subTotal;
+    protected Double subTotal;
 
     @OneToOne
     @JoinColumn(name = "product_uuid", nullable = false)
-    private Product product;
+    protected Product product;
 }

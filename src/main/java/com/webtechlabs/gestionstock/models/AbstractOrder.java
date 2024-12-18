@@ -19,21 +19,21 @@ public class AbstractOrder extends AbstractIdentifier {
     @CreatedDate
     @JsonIgnore
     @Column(name = "order_date", nullable = false)
-    private Instant orderDate;
+    protected Instant orderDate;
 
     @Column(name = "order_number", nullable = false)
-    private String orderNumber;
+    protected String orderNumber;
 
     @Column(name = "total_amount", nullable = false)
-    private Double totalAmount;
+    protected Double totalAmount;
 
     @Column(name = "shipping_date")
-    private Instant shippingDate;
+    protected Instant shippingDate;
 
     @Column(name = "cancel_date")
-    private Instant cancelDate;
+    protected Instant cancelDate;
 
     @OneToOne
     @JoinColumn(name = "payment_uuid")
-    private Payment payment;
+    protected Payment payment;
 }

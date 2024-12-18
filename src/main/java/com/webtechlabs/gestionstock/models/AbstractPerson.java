@@ -9,14 +9,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public class AbstractPerson extends AbstractIdentifier{
+public class AbstractPerson extends AbstractIdentifier {
 
     @Column(name = "name", nullable = false)
-    private String name;
+    protected String name;
 
     @Embedded
-    private Address address;
+    protected Address address;
 
     @Embedded
-    private ContactPerson contact;
+    protected ContactPerson contact;
 }
