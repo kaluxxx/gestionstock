@@ -20,15 +20,15 @@ public abstract class AbstractIdentifier implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "uuid", updatable = false, nullable = false)
-    private String uuid;
+    protected String uuid;
 
     @CreatedDate
     @JsonIgnore
     @Column(name = "created_at", updatable = false, nullable = false)
-    private Instant createdAt;
+    protected Instant createdAt;
 
     @LastModifiedDate
     @JsonIgnore
     @Column(name = "updated_at")
-    private Instant updatedAt;
+    protected Instant updatedAt;
 }

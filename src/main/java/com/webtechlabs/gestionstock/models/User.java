@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,9 +23,11 @@ public class User extends AbstractIdentifier {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_uuid", nullable = false)
-    private Role role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_uuid"),
+            inverseJoinColumns = @JoinColumn(name = "role_uuid"))
+    private Set<Role> roles;
 
     @ManyToOne
     @JoinColumn(name = "company_uuid")
