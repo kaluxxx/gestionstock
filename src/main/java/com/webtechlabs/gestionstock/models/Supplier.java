@@ -18,4 +18,8 @@ public class Supplier extends AbstractPerson {
 
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products;
+
+    @ManyToOne
+    @JoinColumn(name = "company_uuid")
+    private Company company;
 }
