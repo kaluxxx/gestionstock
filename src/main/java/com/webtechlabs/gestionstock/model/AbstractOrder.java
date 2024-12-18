@@ -1,7 +1,6 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.webtechlabs.gestionstock.enums.EOrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

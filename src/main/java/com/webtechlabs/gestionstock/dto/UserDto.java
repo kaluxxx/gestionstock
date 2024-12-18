@@ -1,9 +1,7 @@
-package com.webtechlabs.gestionstock.dtos;
+package com.webtechlabs.gestionstock.dto;
 
 import lombok.Data;
-import lombok.Value;
 
-import java.io.Serializable;
 import java.util.Set;
 
 @Data

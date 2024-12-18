@@ -1,4 +1,4 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -8,14 +8,12 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "orders_line")
-public class OrderLine extends AbstractOrderLine {
+@Table(name = "supplier_orders_line")
+public class SupplierOrderLine extends AbstractOrderLine {
 
     @ManyToOne
-    @JoinColumn(name = "order_uuid")
-    private Order order;
+    @JoinColumn(name = "supplier_order_uuid")
+    private SupplierOrder supplierOrder;
 }

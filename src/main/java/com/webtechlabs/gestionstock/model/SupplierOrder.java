@@ -1,4 +1,4 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.ESupplierOrderStatus;
 import jakarta.persistence.*;

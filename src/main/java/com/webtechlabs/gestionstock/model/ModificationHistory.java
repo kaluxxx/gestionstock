@@ -1,4 +1,4 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

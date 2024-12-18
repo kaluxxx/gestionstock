@@ -1,29 +1,30 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
-import com.webtechlabs.gestionstock.enums.ERole;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "roles")
-public class Role extends AbstractIdentifier {
+@Table(name = "category")
+public class Category extends AbstractIdentifier {
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "name", nullable = false, unique = true)
-    private ERole name;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

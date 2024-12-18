@@ -1,4 +1,4 @@
-package com.webtechlabs.gestionstock.models;
+package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.EPaymentMethod;
 import com.webtechlabs.gestionstock.enums.EPaymentStatus;
