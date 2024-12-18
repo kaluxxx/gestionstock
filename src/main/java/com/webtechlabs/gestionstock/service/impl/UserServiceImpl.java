@@ -8,7 +8,6 @@ import com.webtechlabs.gestionstock.model.User;
 import com.webtechlabs.gestionstock.repository.RoleRepository;
 import com.webtechlabs.gestionstock.repository.UserRepository;
 import com.webtechlabs.gestionstock.service.UserService;
-import com.webtechlabs.gestionstock.validator.UserValidator;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,22 +32,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void register(UserDto userDto) {
-        UserValidator.validate(userDto);
-
         if (findByEmail(userDto.getEmail()).isPresent()) {
             throw new IllegalArgumentException("Email already exists");
         }
 
-        if (!UserValidator.isPasswordStrong(userDto.getPassword())) {
-            throw new IllegalArgumentException("Password is not strong enough");
-        }
-
-        User newUser = UserMapper.INSTANCE.userDtoToUser(userDto);
-        newUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
-
         Role role = roleRepository.findByName(ERole.ROLE_USER)
                 .orElseThrow(() -> new IllegalArgumentException("Default role not found"));
 
+        User newUser = UserMapper.INSTANCE.userDtoToUser(userDto);
+        newUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
         newUser.setRoles(Set.of(role));
         
         userRepository.save(newUser);
