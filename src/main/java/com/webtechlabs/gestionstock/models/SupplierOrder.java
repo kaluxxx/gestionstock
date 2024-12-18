@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,4 +23,11 @@ public class SupplierOrder extends AbstractOrder {
 
     @Column(name = "reception_date")
     private String receptionDate;
+
+    @OneToMany(mappedBy = "supplierOrder", cascade = CascadeType.ALL)
+    private List<SupplierOrderLine> supplierOrderLines;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_uuid")
+    private Supplier supplier;
 }

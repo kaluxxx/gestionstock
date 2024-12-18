@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +24,11 @@ public class Order extends AbstractOrder {
 
     @Column(name = "delivery_date")
     private Instant deliveryDate;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderLine> orderLines;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_uuid")
+    private Customer customer;
 }
