@@ -2,17 +2,13 @@ package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.ESupplierOrderStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "supplier_orders")
 public class SupplierOrder extends AbstractOrder {
@@ -28,6 +24,6 @@ public class SupplierOrder extends AbstractOrder {
     private List<SupplierOrderLine> supplierOrderLines;
 
     @ManyToOne
-    @JoinColumn(name = "supplier_uuid")
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 }

@@ -2,17 +2,13 @@ package com.webtechlabs.gestionstock.model;
 
 import com.webtechlabs.gestionstock.enums.EAuditActionType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "audit_logs")
 public class AuditLog extends AbstractIdentifier {
@@ -24,11 +20,11 @@ public class AuditLog extends AbstractIdentifier {
     @Column(name = "entity_name", updatable = false, nullable = false)
     private String entityName;
 
-    @Column(name = "entity_uuid", updatable = false, nullable = false)
-    private String entityUuid;
+    @Column(name = "entity_id", updatable = false, nullable = false)
+    private String entityId;
 
     @ManyToOne
-    @JoinColumn(name = "user_uuid", updatable = false, nullable = false)
+    @JoinColumn(name = "user_id", updatable = false, nullable = false)
     private User user;
 
     @Column(name = "occurred_at", updatable = false, nullable = false)

@@ -1,17 +1,13 @@
 package com.webtechlabs.gestionstock.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "product")
 public class Product extends AbstractIdentifier {
@@ -35,17 +31,17 @@ public class Product extends AbstractIdentifier {
     private String imageUrl;
 
     @ManyToOne
-    @JoinColumn(name = "category_uuid", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "company_uuid", nullable = false)
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StockMovement> stockMovements;
 
     @ManyToOne
-    @JoinColumn(name = "supplier_uuid", nullable = false)
+    @JoinColumn(name = "supplier_id", nullable = false)
     private Supplier supplier;
 }

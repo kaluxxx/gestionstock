@@ -6,12 +6,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Entity
 @Table(name = "orders_line")
 public class OrderLine extends AbstractOrderLine {
 
     @ManyToOne
-    @JoinColumn(name = "order_uuid")
+    @JoinColumn(name = "order_id")
     private Order order;
 }

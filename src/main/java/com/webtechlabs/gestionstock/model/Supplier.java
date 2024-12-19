@@ -1,17 +1,13 @@
 package com.webtechlabs.gestionstock.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "suppliers")
 public class Supplier extends AbstractPerson {
@@ -20,6 +16,6 @@ public class Supplier extends AbstractPerson {
     private List<Product> products;
 
     @ManyToOne
-    @JoinColumn(name = "company_uuid")
+    @JoinColumn(name = "company_id")
     private Company company;
 }

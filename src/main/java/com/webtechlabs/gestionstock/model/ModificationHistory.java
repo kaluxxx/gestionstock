@@ -1,17 +1,13 @@
 package com.webtechlabs.gestionstock.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "modifications_history")
 public class ModificationHistory extends AbstractIdentifier {
@@ -19,8 +15,8 @@ public class ModificationHistory extends AbstractIdentifier {
     @Column(name = "entity_name", updatable = false, nullable = false)
     private String entityName;
 
-    @Column(name = "entity_uuid", updatable = false, nullable = false)
-    private String entityUuid;
+    @Column(name = "entity_id", updatable = false, nullable = false)
+    private String entityId;
 
     @Column(name = "field_name", updatable = false, nullable = false)
     private String fieldName;
