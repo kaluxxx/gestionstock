@@ -6,6 +6,4 @@ import com.webtechlabs.gestionstock.dto.AuthResponseDto;
 public interface AuthService {
 
     AuthResponseDto login(AuthRequestDto authRequestDto);
-
-    void logout();
 }

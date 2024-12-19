@@ -30,11 +30,6 @@ public class AuthServiceImpl implements AuthService {
         return generateAuthResponse(authentication);
     }
 
-    @Override
-    public void logout() {
-
-    }
-
     private Authentication getAuthentication(String email, String password) {
         return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
     }
