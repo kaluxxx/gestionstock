@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1734604712942-1" author="Lucas (generated)">
+        <createTable tableName="audit_logs">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_audit_logs"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="action_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="occurred_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-2" author="Lucas (generated)">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_category"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-3" author="Lucas (generated)">
+        <createTable tableName="company">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_company"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-4" author="Lucas (generated)">
+        <createTable tableName="customers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_customers"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-5" author="Lucas (generated)">
+        <createTable tableName="invoices">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_invoices"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="invoice_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issued_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="due_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-6" author="Lucas (generated)">
+        <createTable tableName="modifications_history">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_modifications_history"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="entity_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="field_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="old_value" type="TEXT"/>
+            <column name="new_value" type="TEXT"/>
+            <column name="modified_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_by" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-7" author="Lucas (generated)">
+        <createTable tableName="notifications">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_notifications"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="read" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-8" author="Lucas (generated)">
+        <createTable tableName="orders">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_orders"/>
+            </column>
+            <column name="order_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_date" type="DATETIME"/>
+            <column name="cancel_date" type="DATETIME"/>
+            <column name="payment_id" type="BIGINT"/>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="delivery_date" type="DATETIME"/>
+            <column name="customer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-9" author="Lucas (generated)">
+        <createTable tableName="orders_line">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_orders_line"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sub_total" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="order_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-10" author="Lucas (generated)">
+        <createTable tableName="payments">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_payments"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="method" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-11" author="Lucas (generated)">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DOUBLE"/>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alert_threshold" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="VARCHAR(255)"/>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="supplier_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-12" author="Lucas (generated)">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_roles"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-13" author="Lucas (generated)">
+        <createTable tableName="stock_movements">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_stock_movements"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="movement_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="occurred_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reason" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-14" author="Lucas (generated)">
+        <createTable tableName="supplier_orders">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_supplier_orders"/>
+            </column>
+            <column name="order_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_date" type="DATETIME"/>
+            <column name="cancel_date" type="DATETIME"/>
+            <column name="payment_id" type="BIGINT"/>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="reception_date" type="VARCHAR(255)"/>
+            <column name="supplier_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-15" author="Lucas (generated)">
+        <createTable tableName="supplier_orders_line">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_supplier_orders_line"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sub_total" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="supplier_order_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-16" author="Lucas (generated)">
+        <createTable tableName="suppliers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_suppliers"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="company_id" type="BIGINT"/>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-17" author="Lucas (generated)">
+        <createTable tableName="user_roles">
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user_roles"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user_roles"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-18" author="Lucas (generated)">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users"/>
+            </column>
+            <column name="uuid" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1734604712942-19" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_audit_logs_uuid" tableName="audit_logs"/>
+    </changeSet>
+    <changeSet id="1734604712942-20" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_category_uuid" tableName="category"/>
+    </changeSet>
+    <changeSet id="1734604712942-21" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_company_email" tableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-22" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="phone" constraintName="uc_company_phone" tableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-23" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_company_uuid" tableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-24" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_customers_email" tableName="customers"/>
+    </changeSet>
+    <changeSet id="1734604712942-25" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="phone" constraintName="uc_customers_phone" tableName="customers"/>
+    </changeSet>
+    <changeSet id="1734604712942-26" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_customers_uuid" tableName="customers"/>
+    </changeSet>
+    <changeSet id="1734604712942-27" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_invoices_uuid" tableName="invoices"/>
+    </changeSet>
+    <changeSet id="1734604712942-28" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_modifications_history_uuid"
+                             tableName="modifications_history"/>
+    </changeSet>
+    <changeSet id="1734604712942-29" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_notifications_uuid" tableName="notifications"/>
+    </changeSet>
+    <changeSet id="1734604712942-30" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="product_id" constraintName="uc_orders_line_product" tableName="orders_line"/>
+    </changeSet>
+    <changeSet id="1734604712942-31" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_orders_line_uuid" tableName="orders_line"/>
+    </changeSet>
+    <changeSet id="1734604712942-32" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="payment_id" constraintName="uc_orders_payment" tableName="orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-33" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_orders_uuid" tableName="orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-34" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_payments_uuid" tableName="payments"/>
+    </changeSet>
+    <changeSet id="1734604712942-35" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_product_uuid" tableName="product"/>
+    </changeSet>
+    <changeSet id="1734604712942-36" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uc_roles_name" tableName="roles"/>
+    </changeSet>
+    <changeSet id="1734604712942-37" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_roles_uuid" tableName="roles"/>
+    </changeSet>
+    <changeSet id="1734604712942-38" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_stock_movements_uuid" tableName="stock_movements"/>
+    </changeSet>
+    <changeSet id="1734604712942-39" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="product_id" constraintName="uc_supplier_orders_line_product"
+                             tableName="supplier_orders_line"/>
+    </changeSet>
+    <changeSet id="1734604712942-40" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_supplier_orders_line_uuid"
+                             tableName="supplier_orders_line"/>
+    </changeSet>
+    <changeSet id="1734604712942-41" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="payment_id" constraintName="uc_supplier_orders_payment"
+                             tableName="supplier_orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-42" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_supplier_orders_uuid" tableName="supplier_orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-43" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_suppliers_email" tableName="suppliers"/>
+    </changeSet>
+    <changeSet id="1734604712942-44" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="phone" constraintName="uc_suppliers_phone" tableName="suppliers"/>
+    </changeSet>
+    <changeSet id="1734604712942-45" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_suppliers_uuid" tableName="suppliers"/>
+    </changeSet>
+    <changeSet id="1734604712942-46" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_users_email" tableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-47" author="Lucas (generated)">
+        <addUniqueConstraint columnNames="uuid" constraintName="uc_users_uuid" tableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-48" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="audit_logs"
+                                 constraintName="FK_AUDIT_LOGS_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-49" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="modified_by" baseTableName="modifications_history"
+                                 constraintName="FK_MODIFICATIONS_HISTORY_ON_MODIFIED_BY" referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-50" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="notifications"
+                                 constraintName="FK_NOTIFICATIONS_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-51" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="orders_line"
+                                 constraintName="FK_ORDERS_LINE_ON_ORDER" referencedColumnNames="id"
+                                 referencedTableName="orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-52" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="orders_line"
+                                 constraintName="FK_ORDERS_LINE_ON_PRODUCT" referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1734604712942-53" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="orders"
+                                 constraintName="FK_ORDERS_ON_CUSTOMER" referencedColumnNames="id"
+                                 referencedTableName="customers"/>
+    </changeSet>
+    <changeSet id="1734604712942-54" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="payment_id" baseTableName="orders"
+                                 constraintName="FK_ORDERS_ON_PAYMENT" referencedColumnNames="id"
+                                 referencedTableName="payments"/>
+    </changeSet>
+    <changeSet id="1734604712942-55" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product"
+                                 constraintName="FK_PRODUCT_ON_CATEGORY" referencedColumnNames="id"
+                                 referencedTableName="category"/>
+    </changeSet>
+    <changeSet id="1734604712942-56" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="product"
+                                 constraintName="FK_PRODUCT_ON_COMPANY" referencedColumnNames="id"
+                                 referencedTableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-57" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="supplier_id" baseTableName="product"
+                                 constraintName="FK_PRODUCT_ON_SUPPLIER" referencedColumnNames="id"
+                                 referencedTableName="suppliers"/>
+    </changeSet>
+    <changeSet id="1734604712942-58" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock_movements"
+                                 constraintName="FK_STOCK_MOVEMENTS_ON_PRODUCT" referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1734604712942-59" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="stock_movements"
+                                 constraintName="FK_STOCK_MOVEMENTS_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="1734604712942-60" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="suppliers"
+                                 constraintName="FK_SUPPLIERS_ON_COMPANY" referencedColumnNames="id"
+                                 referencedTableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-61" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="supplier_orders_line"
+                                 constraintName="FK_SUPPLIER_ORDERS_LINE_ON_PRODUCT" referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+    <changeSet id="1734604712942-62" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="supplier_order_id" baseTableName="supplier_orders_line"
+                                 constraintName="FK_SUPPLIER_ORDERS_LINE_ON_SUPPLIER_ORDER" referencedColumnNames="id"
+                                 referencedTableName="supplier_orders"/>
+    </changeSet>
+    <changeSet id="1734604712942-63" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="payment_id" baseTableName="supplier_orders"
+                                 constraintName="FK_SUPPLIER_ORDERS_ON_PAYMENT" referencedColumnNames="id"
+                                 referencedTableName="payments"/>
+    </changeSet>
+    <changeSet id="1734604712942-64" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="supplier_id" baseTableName="supplier_orders"
+                                 constraintName="FK_SUPPLIER_ORDERS_ON_SUPPLIER" referencedColumnNames="id"
+                                 referencedTableName="suppliers"/>
+    </changeSet>
+    <changeSet id="1734604712942-65" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="users" constraintName="FK_USERS_ON_COMPANY"
+                                 referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet id="1734604712942-66" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_roles" constraintName="fk_userol_on_role"
+                                 referencedColumnNames="id" referencedTableName="roles"/>
+    </changeSet>
+    <changeSet id="1734604712942-67" author="Lucas (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_roles" constraintName="fk_userol_on_user"
+                                 referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+
+</databaseChangeLog>
