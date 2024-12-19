@@ -1,7 +1,5 @@
 package com.webtechlabs.gestionstock.service.impl;
 
-import com.webtechlabs.gestionstock.dto.AuthRequestDto;
-import com.webtechlabs.gestionstock.dto.AuthResponseDto;
 import com.webtechlabs.gestionstock.dto.UserCreateDto;
 import com.webtechlabs.gestionstock.enums.ERole;
 import com.webtechlabs.gestionstock.mapper.UserMapper;
