@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public class AbstractPerson extends AbstractIdentifier {
+public abstract class AbstractPerson extends AbstractIdentifier {
 
     @Column(name = "name", nullable = false)
     protected String name;
