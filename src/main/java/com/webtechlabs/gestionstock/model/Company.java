@@ -12,6 +12,9 @@ import java.util.List;
 @Table(name = "company")
 public class Company extends AbstractPerson {
 
+    @Column(name = "siret", nullable = false, unique = true)
+    private String siret;
+
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<User> users;
 
