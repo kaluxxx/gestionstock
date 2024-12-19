@@ -1,6 +1,6 @@
 package com.webtechlabs.gestionstock.mapper;
 
-import com.webtechlabs.gestionstock.dto.UserDto;
+import com.webtechlabs.gestionstock.dto.UserCreateDto;
 import com.webtechlabs.gestionstock.enums.ERole;
 import com.webtechlabs.gestionstock.model.Role;
 import com.webtechlabs.gestionstock.model.User;
@@ -18,14 +18,14 @@ public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     @Mapping(source = "roles", target = "roles", qualifiedByName = "roleSetToStringSet")
-    UserDto userToUserDto(User user);
+    UserCreateDto userToUserDto(User user);
 
     @Mapping(source = "roles", target = "roles", qualifiedByName = "stringSetToRoleSet")
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "company", ignore = true)
     @Mapping(target = "stockMovements", ignore = true)
-    User userDtoToUser(UserDto userDto);
+    User userDtoToUser(UserCreateDto userCreateDto);
 
     @Named("roleSetToStringSet")
     default Set<String> roleSetToStringSet(Set<Role> roles) {

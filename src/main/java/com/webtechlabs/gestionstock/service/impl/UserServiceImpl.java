@@ -1,6 +1,8 @@
 package com.webtechlabs.gestionstock.service.impl;
 
-import com.webtechlabs.gestionstock.dto.UserDto;
+import com.webtechlabs.gestionstock.dto.AuthRequestDto;
+import com.webtechlabs.gestionstock.dto.AuthResponseDto;
+import com.webtechlabs.gestionstock.dto.UserCreateDto;
 import com.webtechlabs.gestionstock.enums.ERole;
 import com.webtechlabs.gestionstock.mapper.UserMapper;
 import com.webtechlabs.gestionstock.model.Role;
@@ -31,28 +33,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(UserDto userDto) {
-        if (findByEmail(userDto.getEmail()).isPresent()) {
+    public void create(UserCreateDto userCreateDto) {
+        findByEmail(userCreateDto.getEmail()).ifPresent(user -> {
             throw new IllegalArgumentException("Email already exists");
-        }
+        });
 
         Role role = roleRepository.findByName(ERole.ROLE_USER)
                 .orElseThrow(() -> new IllegalArgumentException("Default role not found"));
 
-        User newUser = UserMapper.INSTANCE.userDtoToUser(userDto);
-        newUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        User newUser = UserMapper.INSTANCE.userDtoToUser(userCreateDto);
+        newUser.setPassword(passwordEncoder.encode(userCreateDto.getPassword()));
         newUser.setRoles(Set.of(role));
         
         userRepository.save(newUser);
     }
 
     @Override
-    public UserDto authenticate(UserDto userDto) {
-        return null;
-    }
-
-    @Override
-    public UserDto update(String uuid, UserDto userDto) {
+    public UserCreateDto update(String uuid, UserCreateDto userCreateDto) {
         return null;
     }
 
