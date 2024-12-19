@@ -14,6 +14,6 @@ import lombok.*;
 public class SupplierOrderLine extends AbstractOrderLine {
 
     @ManyToOne
-    @JoinColumn(name = "supplier_order_uuid")
+    @JoinColumn(name = "supplier_order_id")
     private SupplierOrder supplierOrder;
 }

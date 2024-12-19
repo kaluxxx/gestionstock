@@ -16,6 +16,6 @@ public class Supplier extends AbstractPerson {
     private List<Product> products;
 
     @ManyToOne
-    @JoinColumn(name = "company_uuid")
+    @JoinColumn(name = "company_id")
     private Company company;
 }

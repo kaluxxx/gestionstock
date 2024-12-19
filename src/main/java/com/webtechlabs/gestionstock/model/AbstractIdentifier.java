@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.UUID;
 
 
 @Getter
@@ -18,9 +19,12 @@ import java.time.Instant;
 public abstract class AbstractIdentifier implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "uuid", updatable = false, nullable = false)
-    protected String uuid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, updatable = false, unique = true)
+    @Setter(AccessLevel.NONE)
+    private UUID uuid = UUID.randomUUID();
 
     @CreatedDate
     @JsonIgnore

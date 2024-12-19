@@ -29,10 +29,10 @@ public class StockMovement extends AbstractIdentifier {
     private EStockMovementReason reason;
 
     @ManyToOne
-    @JoinColumn(name = "product_uuid", nullable = false)
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "user_uuid", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

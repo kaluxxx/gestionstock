@@ -22,6 +22,6 @@ public class Notification extends AbstractIdentifier {
     private Boolean read = false;
 
     @ManyToOne
-    @JoinColumn(name = "user_uuid", updatable = false, nullable = false)
+    @JoinColumn(name = "user_id", updatable = false, nullable = false)
     private User user;
 }

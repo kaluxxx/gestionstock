@@ -22,6 +22,6 @@ public class AbstractOrderLine extends AbstractIdentifier {
     protected Double subTotal;
 
     @OneToOne
-    @JoinColumn(name = "product_uuid", nullable = false)
+    @JoinColumn(name = "product_id", nullable = false)
     protected Product product;
 }

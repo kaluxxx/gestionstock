@@ -25,6 +25,6 @@ public class Order extends AbstractOrder {
     private List<OrderLine> orderLines;
 
     @ManyToOne
-    @JoinColumn(name = "customer_uuid")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 }

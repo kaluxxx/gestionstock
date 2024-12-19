@@ -33,6 +33,6 @@ public class AbstractOrder extends AbstractIdentifier {
     protected Instant cancelDate;
 
     @OneToOne
-    @JoinColumn(name = "payment_uuid")
+    @JoinColumn(name = "payment_id")
     protected Payment payment;
 }

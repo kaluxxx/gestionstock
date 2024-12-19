@@ -24,6 +24,6 @@ public class SupplierOrder extends AbstractOrder {
     private List<SupplierOrderLine> supplierOrderLines;
 
     @ManyToOne
-    @JoinColumn(name = "supplier_uuid")
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 }
