@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 @Data
-public class UserDto {
+public class UserCreateDto {
 
     private String uuid;
 
